@@ -42,7 +42,7 @@ function PageNotFound() {
 
     try {
       if (e.key === 'Enter') {
-        console.log('entered')
+
         const res = await axios.get('http://localhost:3580/search_teams/' + e.target.value)
 
         setStandards(res.data)
@@ -61,7 +61,6 @@ function PageNotFound() {
     setsearch("")
     try {
 
-      console.log('cleared')
       const res = await axios.get('http://localhost:3580/get_teams/')
 
       setStandards(res.data)

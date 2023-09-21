@@ -45,7 +45,6 @@ function onDatePicked(date) {
 
     try {
       if (e.key === 'Enter') {
-        console.log('entered')
         const res = await axios.get('http://localhost:3580/search_users/' + e.target.value)
 
         setStandards(res.data)
@@ -63,8 +62,6 @@ function onDatePicked(date) {
     setClear(false)
     setsearch("")
     try {
-
-      console.log('cleared')
       const res = await axios.get('http://localhost:3580/get_users/')
 
       setStandards(res.data)

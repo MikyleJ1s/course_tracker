@@ -25,7 +25,7 @@ const SignIn = () => {
           const two = await axios.get('http://localhost:3580/validation2/' + one.data[0].user_id)
           console.log(two.data[0].password)
           if (password === two.data[0].password){
-            
+            localStorage.setItem('name', one.data[0].user_id)
             const three = await axios.get('http://localhost:3580/validation3/' + one.data[0].user_id)
           if (three.data[0].user_type == "Graduate"){
 
@@ -56,25 +56,31 @@ const SignIn = () => {
     
     return (
       <>
+
       <body>
     <form class="form-signin" onSubmit={e => { handleSubmit(e) }}>
       <img class="mb-4" src={logo} alt="" height="72"/>
 
       <div style={{border: "1px solid #0075c9", padding: "10px"}}>
+      <div class="modal-body p-4 p-md-5">
+<div class="icon d-flex align-items-center justify-content-center">
+</div>
+<h3 class="text-center mb-4 sanlam-blue-text">Sign In</h3>
+<form action="#" class="login-form">
 
-              <h3 class='sanlam-blue-text'>Sign In</h3>
-      <br/>
-      <div style={{width: "500px"}}>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" onChange={(event) => { setEmail(event.target.value) }}/>
-      <br/>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" onChange={(event) => { setPassword(event.target.value) }}/>
-      </div>
-      
+</form><div class="form-group">
+<label for="inputEmail" class="sr-only">Email</label>
+<input type="email" class="form-control rounded-left" placeholder="Email" autofocus="" onChange={(event) => { setEmail(event.target.value) }}/>
+</div>
+<br/>
+<label for="inputEmail" class="sr-only">Password</label>
+<div class="form-group d-flex">
+  
+<input type="password" class="form-control" placeholder="Password" required=""autoFocus="" onChange={(event) => { setPassword(event.target.value) }}/>
+</div>
+</div>
       <div style={{textAlign: 'right', margin: "10px"}}>
 
-      
       <button class="btn btn-lg btn-outline-primary btn-block" type="submit" style={{borderRadius: "0px"}}>Sign in</button>
 
       </div>

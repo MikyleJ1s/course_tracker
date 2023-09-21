@@ -9,6 +9,7 @@ import moment from 'moment'
 
 
 function ViewRotations() {
+  const n = localStorage.getItem('name')
   const [standards, setStandards] = useState([])
 
   //const [active, setActive] = useState(1);
@@ -49,7 +50,6 @@ function ViewRotations() {
 
     try {
       if (e.key === 'Enter') {
-        console.log('entered')
         const res = await axios.get('http://localhost:3580/search_teams/' + e.target.value)
 
         setStandards(res.data)
@@ -67,8 +67,6 @@ function ViewRotations() {
     setClear(false)
     setsearch("")
     try {
-
-      console.log('cleared')
       const res = await axios.get('http://localhost:3580/get_teams/')
 
       setStandards(res.data)

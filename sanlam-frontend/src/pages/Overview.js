@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router'
-import male from './male-icon.jpg'
+import male from './manager.jpg'
 import female from './female-icon.jpg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -9,25 +9,20 @@ import axios from 'axios'
 
 function Overview() {
   const location = useLocation();
-  const [modalShow, setModalShow] = React.useState(false);
+  const [manager, setManager] = React.useState('');
 
-  const save = async(a, b, c, d) => {
-
-    const data = {
-      graduate_name: a,
-    user_id: b, 
-    rotation_identifier: c, 
-    apply_date: '2020-02-02',
-        
+  useEffect(() => {
+    const fetchAdminData = async () => {
+      try {
+        const res = await axios.get('http://localhost:3580/get_name_and_surname/'+ location.state.data.manager)
+        console.log(res.data)
+        setManager(res.data)
+      } catch (error) {
+        console.log(error)
+      }
     }
-    try {
-        await axios.post('http://localhost:3580/save_rotation', data)
-        console.log('http://localhost:3580/get_user_events/', data)
-    } catch (error) {
-        console.log('not approved', error)
-    }
-
-}
+    fetchAdminData()
+  }, [])
 
   return (
     
@@ -36,17 +31,21 @@ function Overview() {
       <div className='container-fluid h-100'>
 
       <div className=''>
-      <h1 class='sanlam-blue-text'>{location.state.data.name}</h1>
+      <h1 class='sanlam-blue-text-left'>{location.state.data.name}</h1>
     <br />
     <div>
           {location.state.data.description}
           <br/><br/>
-          <h3 class='sanlam-blue-text'>Rotation Manager:</h3>
-          <img src={male} alt={<i class='bi bi-person'></i>} width={'100px'} height={'100px'}/>
-          {location.state.data.manager}
-          <br/><br/>
+          <div style={{float: 'right'}}>
+          <p class='sanlam-blue-text-left' >
+          <img src={male} alt={<i class='bi bi-person'></i>} width={'25px'} height={'25px'}/> {manager[0]?.first_name} {manager[0]?.last_name}</p>
+          
+
+          </div>
+
+          <br/>
         
-          <h3 class='sanlam-blue-text'>Technologies:</h3>
+          <h3 class='sanlam-blue-text-left'>Technologies:</h3>
          
 <text>
           {location.state.data.technologies.split(',').map((u) => (<text >  
@@ -54,10 +53,11 @@ function Overview() {
             </text>))}
 </text>
 <br/><br/>
-<h3 class='sanlam-blue-text'>Expectations:</h3>
+<h3 class='sanlam-blue-text-left'>Expectations:</h3>
 {location.state.data.expectations}
           
-          
+          <br/>
+          <br/>
 
 
     </div>

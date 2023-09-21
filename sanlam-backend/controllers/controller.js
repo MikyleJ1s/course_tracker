@@ -82,6 +82,19 @@ exports.get_user_events = (req, res) => {
 
 }
 
+exports.get_user_feedback = (req, res) => {
+    database.query("select * from feedback where user_id = ?",
+        [req.params.s],
+        function (err, result, fields) {
+            if (err) {
+                return err
+            }
+            return res.send(JSON.stringify(result))
+        })
+    
+
+}
+
 exports.searchteams = (req, res) => {
     database.query("select * from teams where technologies like ? or name like ? or description like ? or expectations like ?",
         ['%'+req.params.s+'%', '%'+req.params.s+'%', '%'+req.params.s+'%', '%'+req.params.s+'%'],
@@ -198,13 +211,122 @@ exports.validation3 = (req, res) => {
 
 }
 
+exports.get_name_and_surname = (req, res) => {
+    database.query("select first_name, last_name from users where user_id = ?",
+        [req.params.s],
+        function (err, result, fields) {
+            if (err) {
+                return err
+            }
+            return res.send(JSON.stringify(result))
+        })
+
+}
+exports.get_rotation_name = (req, res) => {
+    database.query("select name from teams where manager = ?",
+        [req.params.s],
+        function (err, result, fields) {
+            if (err) {
+                return err
+            }
+            return res.send(JSON.stringify(result))
+        })
+
+}
 exports.insert_leave = (req, res) => {
     jsondata = req.body;
     a = jsondata['start_date'];
     b = jsondata['end_date']
+    c = jsondata['user_id']
 
     database.query("insert into events_table (title, start, end, event_color, user_id) values (?, ?, ?, ?, ?)",
-        ['Your Leave Day', a, b, 'grey', 1],
+        ['Leave Day', a, b, 'grey', c],
+        function (err, result, fields) {
+            if (err) {
+                return err
+            }
+            return res.send(JSON.stringify(result))
+        })
+
+}
+
+exports.send_feedback = (req, res) => {
+    jsondata = req.body;
+
+    user_id=jsondata['user_id'] 
+    manager=jsondata['manager']
+
+    collab_1=jsondata['collab_1']  
+    collab_a=jsondata['collab_a'] 
+    collab_2=jsondata['collab_2'] 
+    collab_b=jsondata['collab_b'] 
+    collab_3=jsondata['collab_3'] 
+    collab_c=jsondata['collab_c']
+
+    innov_1=jsondata['innov_1'] 
+    innov_a=jsondata['innov_a'] 
+    innov_2=jsondata['innov_2'] 
+    innov_b=jsondata['innov_b'] 
+    innov_3=jsondata['innov_3'] 
+    innov_c=jsondata['innov_c']
+
+    care_1=jsondata['care_1'] 
+    care_a=jsondata['care_a'] 
+    care_2=jsondata['care_2'] 
+    care_b=jsondata['care_b'] 
+    care_3=jsondata['care_3'] 
+    care_c=jsondata['care_c']
+    int_1=jsondata['int_1'] 
+   int_a=jsondata['int_a'] 
+    int_2=jsondata['int_2'] 
+    int_b=jsondata['int_b'] 
+    int_3=jsondata['int_3'] 
+    int_c=jsondata['int_c']
+
+
+    a=jsondata['a']
+    b=jsondata['b'] 
+    c=jsondata['c'] 
+    d=jsondata['d']
+    e=jsondata['e']
+    f=jsondata['f'] 
+    g=jsondata['g'] 
+    h=jsondata['h']
+    i=jsondata['i']
+    j=jsondata['j'] 
+    k=jsondata['k'] 
+    l=jsondata['l']
+    m=jsondata['m']
+    n=jsondata['n'] 
+    o=jsondata['o'] 
+    p=jsondata['p']
+    q=jsondata['q']
+    r=jsondata['r'] 
+     w=jsondata['w'] 
+    x=jsondata['x'] 
+    y=jsondata['y']
+    z=jsondata['z']
+
+    console.log(jsondata)
+
+    database.query("insert into feedback (user_id, manager,collab_1, collab_a,collab_2, collab_b,collab_3, collab_c, innov_1, innov_a,innov_2, innov_b, innov_3, innov_c,care_1, care_a, care_2, care_b,care_3, care_c, int_1, int_a,int_2, int_b, int_3, int_c, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,w,x,y,z, collaborative, innovative, care, integrity, behaviour) values (?, ?,?,?,?   ,?, ?, ?, ?,?, ?,?, ?,?, ?,?, ?,?, ?,         ?, ?,          ?, ?, ?, ?,         ?, ?,        ?, ?,         ?, ?,         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [    user_id, manager,
+            collab_1, collab_a,
+            collab_2, collab_b,
+            collab_3, collab_c,
+        
+            innov_1, innov_a,
+            innov_2, innov_b,
+            innov_3, innov_c,
+        
+            care_1, care_a,
+            care_2, care_b,
+            care_3, care_c,
+        
+            int_1, int_a,
+            int_2, int_b,
+            int_3, int_c,
+        a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,w,x,y,z, (parseFloat(collab_a)+parseFloat(collab_b)+parseFloat(collab_c))/3,  (parseFloat(innov_a)+parseFloat(innov_b)+parseFloat(innov_c))/3, (parseFloat(care_a)+parseFloat(care_b)+parseFloat(care_c))/3, (parseFloat(int_a)+parseFloat(int_b)+parseFloat(int_c))/3,(parseFloat(b)+parseFloat(d)+parseFloat(f)+parseFloat(h)+parseFloat(j)+parseFloat(l)+parseFloat(n)+parseFloat(p)+parseFloat(r))],
         function (err, result, fields) {
             if (err) {
                 return err
@@ -240,11 +362,10 @@ exports.update_rotation_details = (req, res) => {
     a = jsondata['name'];
     b = jsondata['technologies']
     c = jsondata['expectations'];
-    d = jsondata['manager']
     e = jsondata['description']
     f = jsondata['rotation_identifier']
-    database.query("update teams set name = ?, technologies = ?, expectations = ?, manager = ?, description = ? where rotation_identifier = ?",
-        [a, b, c, d, e, f],
+    database.query("update teams set name = ?, technologies = ?, expectations = ?, description = ? where manager = ?",
+        [a, b, c, e, f],
         function (err, result, fields) {
             if (err) {
                 return err

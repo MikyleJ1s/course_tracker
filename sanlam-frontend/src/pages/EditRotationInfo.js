@@ -8,15 +8,13 @@ function EditRotationInfo() {
   const location = useLocation();
   const [modalShow, setModalShow] = React.useState(false);
   const [standards, setStandards] = useState([]);
+  const n = localStorage.getItem('name')
   useEffect(() => {
     const fetchAdminData = async () => {
       
       try {
-        console.log('hello')
-        const res = await axios.get('http://localhost:3580/get_one_rotation/' + "1")
-        console.log("bye")
+        const res = await axios.get('http://localhost:3580/get_one_rotation/' + n)
         setStandards(res.data)
-        console.log(standards)
       } catch (error) {
         console.log(error)
       }
@@ -34,9 +32,8 @@ function EditRotationInfo() {
     rotation_identifier: f
         
     }
-    console.log("hello", data.rotation_identifier)
     try {
-      console.log("inside")
+
         await axios.put('http://localhost:3580/update_rotation_details/', data)
         
     } catch (error) {
@@ -62,12 +59,11 @@ const handleSubmit = async(event) => {
   expectations: inputs.c, 
   manager: inputs.d,
   description: inputs.e,
-  rotation_identifier: "2"
+  rotation_identifier: n
       
   }
 
   try {
-    console.log("mmmmm")
       await axios.put('http://localhost:3580/update_rotation_details/', data)
     
       
@@ -83,72 +79,77 @@ const handleSubmit = async(event) => {
     <div>
       {/* table */}
       <div className='container-fluid h-100'>
-      <h1>Can Edit Rotation Info Here</h1>
+      <h3 className='sanlam-blue-text'> Update Rotation Information</h3>
       
       <div className=''>
-      <h1 class='sanlam-blue-text'>{/*location.state.data.name*/}Name of the Rotation<input 
-        type="text" 
-        name="a" 
-        value={inputs.a} 
-        onChange={handleChange}
-      /></h1>
+           
     <br />
     <div>
-          {/*location.state.data.description*/}
-          <br/><br/>
-          <h3 class='sanlam-blue-text'>Rotation Manager:        <input 
-          type="text" 
-          name="d" 
-          value={inputs.d} 
-          onChange={handleChange}
-        /></h3>
-          {/*location.state.data.manager*/}
-          <br/><br/>
 
-          <h3 class='sanlam-blue-text'>Description:        <input 
-          type="text" 
-          name="e" 
-          value={inputs.e} 
-          onChange={handleChange}
-        /></h3>
-          {/*location.state.data.manager*/}
-          <br/><br/>
-        
-          <h3 class='sanlam-blue-text'>Technologies:        <input 
-          type="text" 
-          name="b" 
-          value={inputs.b} 
-          onChange={handleChange}
-        /></h3>
          
 <text>
           {/*location.state.data.technologies.split(',').map((u) => (<text >  
             <i class='bi bi-box'></i>&nbsp;{u} &nbsp;
           </text>))*/}
 </text>
-<br/><br/>
-<h3 class='sanlam-blue-text'>Expectations:        <input 
-          type="text" 
-          name="c" 
-          
-          value={inputs.c} 
-          onChange={handleChange}
-        /></h3>
-{/*location.state.data.expectations*/}
+
+
           
           
 
 
     </div>
-    <br />
-    <br />
     <div>
 
    
-      <Button variant="primary" onClick={handleSubmit}>
-        Edit
-      </Button>
 
+
+      <form>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Rotation Title</label>
+    <input class="form-control" placeholder='name of your department' type="text" name="a" 
+          
+          value={inputs.a || standards[0]?.name} 
+          onChange={handleChange} />  </div>
+<br/>
+<div class="form-group">
+  
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder='a description of what your team does on a day to day' rows="3"  type="text" 
+          name="e" 
+          
+          value={inputs.e || standards[0]?.description} 
+          onChange={handleChange}></textarea>
+
+  </div>
+  <br/>
+  <div class="form-group">
+  
+    <label for="exampleFormControlTextarea1">Technologies</label>
+    <textarea class="form-control" placeholder='separate multiple tools with a comma' id="exampleFormControlTextarea1" rows="3"  type="text" 
+          name="b" 
+          
+          value={inputs.b || standards[0]?.technologies} 
+          onChange={handleChange}></textarea>
+
+  </div>
+  <br/>
+  <div class="form-group">
+  
+    <label for="exampleFormControlTextarea1">Expectations</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder='what will the graduate be expected to do in your rotation' rows="3"  type="text" 
+          name="c" 
+          
+          value={inputs.c || standards[0]?.expectations} 
+          onChange={handleChange}></textarea>
+
+  </div>
+  <br/>
+</form>
+<Button variant="outline-primary" style={{borderRadius: "0px"}} onClick={handleSubmit}>
+        Update Rotation Information
+      </Button>
 
     </div>
 

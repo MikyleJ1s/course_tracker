@@ -22,6 +22,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ExportExcel from './pages/ExportExcel';
 import SignIn from './pages/SignIn';
+import Feedback from './pages/Feedback';
     const user_types = {
       graduate: "graduate",
       planner: "planner", 
@@ -41,7 +42,7 @@ import SignIn from './pages/SignIn';
       <Routes>
         <Route exact path="/" element={<SignIn/>}/>
         <Route exact path="/overview" element={<UserView><Overview/></UserView>}/>
-
+        <Route exact path="/feed" element={<PlannerView><Feedback/></PlannerView>}/>
         <Route exact path="/user_overview" element={<PlannerView><UsersOverview/></PlannerView>}/>
 
         <Route exact path="/1" element={<UserView><ViewRotations/></UserView>}/>
@@ -98,7 +99,7 @@ function ManagerView({children}){
 
         <Navbar.Collapse>
           <Nav >
-            <Nav.Link href="http://localhost:3000/i" >Edit Rotation Details</Nav.Link>
+            <Nav.Link href="http://localhost:3000/i" >Rotation Details</Nav.Link>
             <Nav.Link href="http://localhost:3000/ii" >Feedback</Nav.Link>
             <Nav.Link href="/">Logout</Nav.Link> 
         
