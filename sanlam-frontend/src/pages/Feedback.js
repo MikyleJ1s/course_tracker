@@ -1,6 +1,4 @@
 import { useLocation } from 'react-router'
-import male from './manager.jpg'
-import female from './female-icon.jpg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -66,7 +64,7 @@ function Feedback() {
         </tr>
         <tr>
           <td colSpan={4}>Overall Rating: Behavioural Competencies</td>
-          <td colSpan={2}>{(location.state.data.collaborative + location.state.data.innovative + location.state.data.care + location.state.data.integrity + location.state.data.behaviour)/13}</td>
+          <td colSpan={2}>{Math.round(((location.state.data.collaborative + location.state.data.innovative + location.state.data.care + location.state.data.integrity + location.state.data.behaviour)/13))/2}</td>
           <td colSpan={4}>Overall Rating: Software / Tools / Technical Skills</td>
           <td colSpan={2}></td>
         </tr>
@@ -103,7 +101,7 @@ Unlocking our Winning As One spirit by focusing on a better outcome for all, ach
         </tr>
         <tr style={{backgroundColor: "grey"}}>
           <td colSpan={10}>AVERAGE RATING FOR COLLABORATIVE</td>
-          <td colSpan={2}>{location.state.data.collaborative}</td>
+          <td colSpan={2}>{Math.round(location.state.data.collaborative*2)/2}</td>
         </tr>
       </tbody>
     </Table>
@@ -138,7 +136,7 @@ Always striving for continuous improvement to create value for our stakeholders,
         </tr>
         <tr style={{backgroundColor: "grey"}}>
           <td colSpan={10}>AVERAGE RATING FOR RESILIENT</td>
-          <td colSpan={2}>{location.state.data.innovative}</td>
+          <td colSpan={2}>{Math.round(location.state.data.innovative*2)/2}</td>
         </tr>
 
       </tbody>
@@ -175,7 +173,7 @@ Serving with empathy & consideration, knowing that everything we do leaves a las
         </tr>
         <tr style={{backgroundColor: "grey"}}>
           <td colSpan={10}>AVERAGE RATING FOR RESULTS-DRIVEN		</td>
-          <td colSpan={2}>{location.state.data.care}</td>
+          <td colSpan={2}>{Math.round(location.state.data.care*2)/2}</td>
         </tr>
 
       </tbody>
@@ -213,7 +211,7 @@ Unwavering in the pursuit to do the right thing, resolute in our commitment to w
         </tr>
         <tr style={{backgroundColor: "grey"}}>
           <td colSpan={10}>AVERAGE RATING FOR INTEGRITY</td>
-          <td colSpan={2}>{location.state.data.integrity}</td>
+          <td colSpan={2}>{Math.round(location.state.data.integrity*2)/2}</td>
         </tr>
       </tbody>
     </Table>

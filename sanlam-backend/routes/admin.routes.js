@@ -1,11 +1,9 @@
 module.exports = (app) => {
     const controller = require('../controllers/controller.js')
-    app.get('/get_applications', controller.getapplications)
+
     app.get('/get_teams', controller.getteams)
     app.get('/get_users', controller.get_users)
-    app.get('/get_policies', controller.getpolicies)
     app.put('/update_rotation_details', controller.update_rotation_details)
-    app.get('/search_applications/:s', controller.searchapplications)
     app.get('/get_user_events/:s', controller.get_user_events)
     app.get('/get_user_feedback/:s', controller.get_user_feedback)
     app.get('/get_name_and_surname/:s', controller.get_name_and_surname)
@@ -20,7 +18,6 @@ module.exports = (app) => {
     app.get('/validation2/:s', controller.validation2)
     app.get('/validation3/:s', controller.validation3)
     app.get('/get_events/:s', controller.get_events)
-    app.post('/save_rotation', controller.save_rotation)
     app.delete('/unsave_rotation/:i', controller.unsave_rotation)
 }
 

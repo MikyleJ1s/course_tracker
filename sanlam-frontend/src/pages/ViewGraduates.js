@@ -79,6 +79,7 @@ function onDatePicked(date) {
       <div class="album py-5 bg-light">
         <div class="container">
         <h3 class='sanlam-blue-text'>Graduates</h3>
+        <div style={{width: '1300px'}}></div>
           {clear && <button onClick={clearsearch}><i class="bi bi-arrow-left-short"></i></button>}
           <div style={{textAlign: "center"}}>  
           <input type="text" placeholder="Search for a graduate. " onChange={searching} onKeyDown={searched} value={search} style={{margin: "10px", width: "80%"}}/>
@@ -95,10 +96,7 @@ function onDatePicked(date) {
             >
               <Card.Body>
                 <Card.Title><h4 class='sanlam-blue-text-left'>{u.first_name} {u.last_name}</h4></Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-
-                </Card.Subtitle>
-                <Button variant='outline-primary' style={{borderRadius: "0px"}} onClick={() => a_clicked(u)}>View</Button>
+                <Button variant='outline-primary' style={{borderRadius: "0px", width: '100%'}} onClick={() => a_clicked(u)}>View</Button>
               </Card.Body>
             </Card>
 

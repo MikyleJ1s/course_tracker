@@ -44,8 +44,8 @@ const [modalShow, setModalShow] = React.useState(false);
   <>
       <div class="album py-5 bg-light">
         <div class="container">
-        <h3 class='sanlam-blue-text'>Course Calendar</h3>
-
+        <h3 class='sanlam-blue-text'>Your Calendar</h3>
+        <div style={{width: '1500px'}}></div>
     <Calendar
       selected={selected}
       onSelectEvent={handleSelected}

@@ -6,7 +6,6 @@ import Modal from 'react-bootstrap/Modal';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import moment from 'moment';
-import ExportExcel from './ExportExcel';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
@@ -62,9 +61,9 @@ function UsersOverview() {
       <div className='container-fluid h-100'>
 
       <div className=''>
-      <h1 class='sanlam-blue-text'>{location.state.data.first_name} {location.state.data.last_name}</h1>
+      <h3 class='sanlam-blue-text'>{location.state.data.first_name} {location.state.data.last_name}</h3>
     <br />
-
+    <div style={{width: '1300px'}}></div>
     <Calendar
       selected={selected}
       onSelectEvent={handleSelected}
@@ -90,7 +89,7 @@ function UsersOverview() {
 
                   >
                     <Card.Body>                
-                      <Button variant='outline-primary' style={{borderRadius: "0px"}} onClick={() => a_clicked(u)}>View</Button>
+                      <Button variant='outline-primary' style={{borderRadius: "0px", width: '100%'}} onClick={() => a_clicked(u)}>View Rotation Feedback</Button>
                     </Card.Body>
                   </Card>
                 </div>

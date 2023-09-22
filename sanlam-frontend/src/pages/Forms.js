@@ -131,7 +131,10 @@ const handleChanges = (event) => {
     <>
 
     <div>
+    <div class="album py-5 bg-light">
+        <div class="container">
       {/* table */}
+      <div style={{width: '1300px'}}></div>
       <div className='container-fluid h-100'>
         <h3 class="sanlam-blue-text">Provide a Graduate some Feedback</h3>
   <br/>
@@ -153,7 +156,7 @@ const handleChanges = (event) => {
   <div class="row">
     <div class="col-md-11">
       <label>Involves & consults with others to reach objectives.	</label>
-      <textarea class="form-control"  rows="1" name="collab_1" Value={inputs.collab_1} onChange={handleChanges}></textarea>    
+      <textarea class="form-control"  rows="1" name="collab_1" Value={inputs.collab_1} onChange={handleChanges} required/>    
       </div>
     <div class="col">
     <div class="form-group">
@@ -166,7 +169,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Shares information, skill & knowledge with others to create better outcomes.	</label>
@@ -182,7 +185,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Builds cooperative (win-win) relationships with others & assists them in goal achievement.	</label>
@@ -199,7 +202,7 @@ const handleChanges = (event) => {
     </div>
   </div>
 
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Provides ideas & solutions to improve products, service delivery or value-add.	</label>
@@ -216,7 +219,7 @@ const handleChanges = (event) => {
     </div>
   </div>
 
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Encourages others to make creative suggestions & brainstorms different ways of working.	</label>
@@ -233,7 +236,7 @@ const handleChanges = (event) => {
     </div>
   </div>
 
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Seeks out opportunities to continuously update their knowledge, skills & methods.	</label>
@@ -250,7 +253,7 @@ const handleChanges = (event) => {
     </div>
   </div>
 
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Respects the needs & feelings of others & takes action to include their perspectives.	</label>
@@ -267,7 +270,7 @@ const handleChanges = (event) => {
     </div>
   </div>
 
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Recognises & communicates the impact & implications of their actions & decisions on other stakeholders.	</label>
@@ -284,7 +287,7 @@ const handleChanges = (event) => {
     </div>
   </div>
 
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Explains the bigger picture & identifies sustainable solutions.	</label>
@@ -300,7 +303,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Takes responsibility for their own work & holds themselves accountable for actions & decisions.	</label>
@@ -316,7 +319,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Emphasises principles & standards in their actions & decisions & questions those of others when necessary.	</label>
@@ -332,7 +335,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Demonstrates reliability by delivering on promises & executing tasks to the best of their ability.	</label>
@@ -348,7 +351,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Analysis</label>
@@ -364,7 +367,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Aptitude and Attitude</label>
@@ -380,7 +383,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Ask correct questions</label>
@@ -396,7 +399,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Attention to detail</label>
@@ -412,7 +415,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Listens and seeks to understand</label>
@@ -428,7 +431,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Meeting deadlines</label>
@@ -444,7 +447,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Presentations</label>
@@ -460,7 +463,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Problem-solving</label>
@@ -476,7 +479,7 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col-md-11">
       <label>Resourcefulness</label>
@@ -492,25 +495,25 @@ const handleChanges = (event) => {
   </div>
     </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col">
       <label>Do you feel the graduate has the aptitude to pursue a longer term career in your area?</label>
       <textarea class="form-control" rows="3" name="w" Value={inputs.w} onChange={handleChanges}></textarea>    </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col">
       <label>What are the person's observable strengths?</label>
       <textarea class="form-control" rows="3" name="x" Value={inputs.x} onChange={handleChanges}></textarea>    </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col">
       <label>What could the person have done differently, or improved on, to enhance his/her performance?</label>
       <textarea class="form-control" rows="3" name="y" Value={inputs.y} onChange={handleChanges}></textarea>    </div>
   </div>
-
+  <br/>
   <div class="row">
     <div class="col">
       <label>If it was up to you, would you hire this person?</label>
@@ -522,7 +525,7 @@ const handleChanges = (event) => {
 </form>
 <br/>
 
- <br/>
+
 
                 <div>
                 <Button variant="outline-primary" style={{borderRadius: "0px"}} onClick={handleSubmit}>
@@ -531,9 +534,11 @@ const handleChanges = (event) => {
       </div>
     </div>
 
-      
+      </div>
+      </div>
    
   </div>
+  <br/>
   </>)
 }
 

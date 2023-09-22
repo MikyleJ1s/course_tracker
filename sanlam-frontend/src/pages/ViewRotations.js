@@ -84,9 +84,10 @@ function ViewRotations() {
       <div class="album py-5 bg-light">
         <div class="container">
         <h3 class='sanlam-blue-text'>Available Rotations</h3>
+        <div style={{width: '1300px'}}></div>
           {clear && <button onClick={clearsearch}><i class="bi bi-arrow-left-short"></i></button>}
           <div style={{textAlign: "center"}}>  
-          <input type="text" placeholder="Search for a rotation, tools etc. " onChange={searching} onKeyDown={searched} value={search} style={{margin: "10px", width: "80%"}}/>
+          <input type="text" placeholder="Search for a rotation, tool, or keywords." onChange={searching} onKeyDown={searched} value={search} style={{margin: "10px", width: "80%"}}/>
 
           </div>
 

@@ -54,7 +54,7 @@ const handleSubmit = async(event) => {
   event.preventDefault();
   
   const data = {
-    name: inputs.a,
+    name: standards[0].name,
   technologies: inputs.b, 
   expectations: inputs.c, 
   manager: inputs.d,
@@ -77,7 +77,10 @@ const handleSubmit = async(event) => {
   return (
     
     <div>
+            <div class="album py-5 bg-light">
+        <div class="container"></div>
       {/* table */}
+      <div style={{width: '1300px'}}></div>
       <div className='container-fluid h-100'>
       <h3 className='sanlam-blue-text'> Update Rotation Information</h3>
       
@@ -105,14 +108,6 @@ const handleSubmit = async(event) => {
 
 
       <form>
-
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Rotation Title</label>
-    <input class="form-control" placeholder='name of your department' type="text" name="a" 
-          
-          value={inputs.a || standards[0]?.name} 
-          onChange={handleChange} />  </div>
-<br/>
 <div class="form-group">
   
     <label for="exampleFormControlTextarea1">Description</label>
@@ -155,7 +150,9 @@ const handleSubmit = async(event) => {
 
       </div>
     </div>
-  </div>
+    <br/>
+  </div></div>
+
   )
 }
 

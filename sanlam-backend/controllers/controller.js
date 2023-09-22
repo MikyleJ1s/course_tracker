@@ -12,27 +12,8 @@ database.connect((error) => {
     console.log('Connected to Database')
 })
 
-exports.getapplications = (req, res) => {
-    database.query("select * from policies",
-        function (err, result, fields) {
-            if (err) {
-                return err
-            }
-            return res.send(JSON.stringify(result))
-        })
 
-}
 
-exports.getpolicies = (req, res) => {
-    database.query("select * from approvedpolicies",
-        function (err, result, fields) {
-            if (err) {
-                return err
-            }
-            return res.send(JSON.stringify(result))
-        })
-
-}
 
 exports.getteams = (req, res) => {
     database.query("select * from teams",
@@ -132,50 +113,9 @@ exports.search_users = (req, res) => {
         })
 }
 
-exports.searchpolicies = (req, res) => {
-    database.query("select * from approvedpolicies where policy_type = ? ",
-        [req.params.s],
-        function (err, result, fields) {
-            if (err) {
-                return err
-            }
-            return res.send(JSON.stringify(result))
-        })
 
-}
-
-exports.searchapplications = (req, res) => {
-    database.query("select * from policies where policy_type = ? ",
-        [req.params.s],
-        function (err, result, fields) {
-            if (err) {
-                return err
-            }
-            return res.send(JSON.stringify(result))
-        })
-
-}
-
-exports.save_rotation = (req, res) => {
-    jsondata = req.body;
-    console.log(req.body)
-    a = jsondata['graduate_name'];
-    b = jsondata['user_id']
-    c = jsondata['rotation_identifier'];
-    d = jsondata['apply_date']
-    database.query("insert into applications (graduate_name, user_id, rotation_identifier, apply_date) values (?, ?, ?, ?)",
-        [a, b, c, d],
-        function (err, result, fields) {
-            if (err) {
-                return err
-            }
-            return res.send(JSON.stringify(result))
-        })
-
-}
 
 exports.validation = (req, res) => {
-    console.log("hi")
     database.query("select user_id from users where email = ?",
         [req.params.s],
         function (err, result, fields) {
@@ -356,9 +296,7 @@ exports.insert_event = (req, res) => {
 
 exports.update_rotation_details = (req, res) => {
     jsondata = req.body;
-   
-    console.log("hello")
-     console.log(req.body)
+
     a = jsondata['name'];
     b = jsondata['technologies']
     c = jsondata['expectations'];

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import formValidation from './form-validation'
 import axios from 'axios';
 import logo from './sanlam.png'
 
@@ -58,10 +57,10 @@ const SignIn = () => {
       <>
 
       <body>
-    <form class="form-signin" onSubmit={e => { handleSubmit(e) }}>
-      <img class="mb-4" src={logo} alt="" height="72"/>
+    <form class="form-signin" onSubmit={e => { handleSubmit(e) }} style={{backgroundColor: "white"}}>
+      <img class="mb-4" src={logo} alt="" height="100"/>
 
-      <div style={{border: "1px solid #0075c9", padding: "10px"}}>
+      <div style={{border: "1px solid #0075c9", padding: "10px", width: '1300px'}}>
       <div class="modal-body p-4 p-md-5">
 <div class="icon d-flex align-items-center justify-content-center">
 </div>
@@ -88,6 +87,7 @@ const SignIn = () => {
       </div>
 
     </form>
+    <br/><br/>
   
 </body>
         </>

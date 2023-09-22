@@ -71,8 +71,8 @@ const [modalShow, setModalShow] = React.useState(false);
   
   <div class="album py-5 bg-light">
         <div class="container">
-        <h3 class='sanlam-blue-text'>Course Calendar</h3>
-
+        <h3 class='sanlam-blue-text'>Academy Curriculum</h3>
+<div style={{width: '1500px'}}></div>
   <Calendar
       selected={selected}
       onSelectEvent={handleSelected}
@@ -159,7 +159,7 @@ const onButtonClicks=(e)=> {
     >
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
-          Insert an event to the calendar
+          You are about to add an event to the calendar
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -171,16 +171,17 @@ const onButtonClicks=(e)=> {
       <label style={{float: 'right'}}>End Date:
      <DatePicker selected={endDate} onChange={(date) => setEndDate(date)}/>
         </label>
-
+<br/>
+<br/>
       <div class="form-group">
     <label for="exampleFormControlTextarea1">Title</label>
-    <input class="form-control" placeholder='name of your department' type="text" name="c" 
+    <input class="form-control" type="text" name="c" 
           
           value={inputs.c} 
           onChange={handleChange} />  </div>
           <br/>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Give It a Colour</label>
+    <label for="exampleFormControlSelect1">Colour</label>
         <Form.Control 
 
 as="select"
